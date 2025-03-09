@@ -10,8 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
 function startTimer(event) {
   event.preventDefault(); // Prevent page refresh
 
-  // Get the number of minutes from the input
-  var newTime = document.getElementById("time").value;
+  // Clear any previous error messages
+  document.getElementById("errorMsg").textContent = "";
+
+  // Parse the user's input for newTime
+  var newTime = parseInt(document.getElementById("time").value, 10);
+
+  // Validate the input
+  if (isNaN(newTime) || newTime <= 0) {
+    document.getElementById("errorMsg").textContent = "Please enter a valid positive number for minutes.";
+    return; // Stop execution if invalid
+  }
 
   // Calculate the future end time (in milliseconds)
   countDownDate = new Date().getTime() + (newTime * 60 * 1000);

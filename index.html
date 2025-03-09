@@ -10,16 +10,19 @@
   <body>
 
     <h1 style="font-size:70px;">Kanfer's OpenSource-Limitimer</h1>
-    
+
     <div id="timer" style="font-size:400px;"></div>
 
     <br>
 
-    <form>
+    <form id="timerForm">
       <label for="time">Set new timer (in minutes):</label>
-      <input type="number" id="time" name="time">
-      <button type="submit" onclick="startTimer()">Start</button>
+      <input type="number" id="time" name="time" min="1">
+      <button type="submit">Start</button>
     </form>
+
+    <div id="errorMsg" class="error"></div>
+    
     <script src="script.js"></script>
 
   </body>
