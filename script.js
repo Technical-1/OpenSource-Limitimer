@@ -1,0 +1,53 @@
+var countDownDate;
+var x;
+
+// Attach event listener once DOM content is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // When the form is submitted, call startTimer
+  document.getElementById('timerForm').addEventListener('submit', startTimer);
+});
+
+function startTimer(event) {
+  event.preventDefault(); // Prevent page refresh
+
+  // Get the number of minutes from the input
+  var newTime = document.getElementById("time").value;
+
+  // Calculate the future end time (in milliseconds)
+  countDownDate = new Date().getTime() + (newTime * 60 * 1000);
+
+  // Clear any previous intervals
+  clearInterval(x);
+
+  // Update the countdown every second
+  x = setInterval(function() {
+    // Get the current time
+    var now = new Date().getTime();
+    // Distance between now and the countdown end
+    var distance = countDownDate - now;
+
+    // Calculate minutes and seconds
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result
+    document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+
+    // Change background color based on remaining time
+    if (distance < 60000) {
+      document.body.style.backgroundColor = "red";
+    } else if (distance < 120000) {
+      document.body.style.backgroundColor = "yellow";
+    } else {
+      document.body.style.backgroundColor = "green";
+    }
+
+    // Check if the countdown has finished
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("timer").innerHTML = "Time's up!";
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+    }
+  }, 1000);
+}

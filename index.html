@@ -1,65 +1,27 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <link rel="stylesheet" href="style.css">
     <title>Limitimer</title>
-    <style>
-      /* center text on the page */
-      body {
-        text-align: center;
-      }
-    </style>
-    <script>
-      var countDownDate;
-      var x;
-      function startTimer() {
-        event.preventDefault();
-        var newTime = document.getElementById("time").value;
-        countDownDate = new Date().getTime() + (newTime * 60 * 1000);
-        clearInterval(x);
-        x = setInterval(function() {
-
-          // Get today's date and time
-          var now = new Date().getTime();
-
-          // Find the distance between now and the count down date
-          var distance = countDownDate - now;
-
-          // Time calculations for minutes and seconds
-          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          // Display the result in the element with id="timer"
-          document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-
-          // Change the background color of the page based on remaining time
-          if (distance < 60000) {
-            document.body.style.backgroundColor = "red";
-          } else if (distance < 120000) {
-            document.body.style.backgroundColor = "yellow";
-          } else {
-            document.body.style.backgroundColor = "green";
-          }
-
-          // If the count down is finished, write some text
-          if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML = "Time's up!";
-            document.body.style.backgroundColor = "black";
-            document.body.style.color = "white";
-          }
-        }, 1000); // 1 second interval
-      }
-    </script>
   </head>
+
   <body>
+
     <h1 style="font-size:70px;">Kanfer's OpenSource-Limitimer</h1>
+    
     <div id="timer" style="font-size:400px;"></div>
+
     <br>
+
     <form>
       <label for="time">Set new timer (in minutes):</label>
       <input type="number" id="time" name="time">
       <button type="submit" onclick="startTimer()">Start</button>
     </form>
+    <script src="script.js"></script>
+
   </body>
+
 </html>
