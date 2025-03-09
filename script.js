@@ -106,7 +106,7 @@ function startTimer(event) {
     // Check if the countdown has finished
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("timer").innerHTML = "Time's up!";
+      document.getElementById("timer").innerHTML = "Time up!";
       document.body.style.backgroundColor = "black";
       document.body.style.color = "white";
 
