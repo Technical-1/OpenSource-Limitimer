@@ -24,3 +24,19 @@ form {
     font-weight: bold;
     margin-top: 10px;
 }
+
+input[type="number"],
+button {
+  font-size: 1rem;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3rem !important;
+  }
+  #timer {
+    font-size: 15rem !important;
+  }
+}
