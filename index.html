@@ -21,8 +21,21 @@
       <button type="submit">Start</button>
     </form>
 
+    <div class="option-group">
+      <label for="enableSound">
+        <input type="checkbox" id="enableSound" checked>
+        Enable Sound
+      </label>
+    </div>
+
+    <audio id="alarmSound">
+      <source src="mixkit-classic-alarm-995.ogg" type="audio/ogg">
+      <source src="mixkit-classic-alarm-995.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
     <div id="errorMsg" class="error"></div>
-    
+
     <script src="script.js"></script>
 
   </body>

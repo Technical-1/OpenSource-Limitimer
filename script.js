@@ -57,6 +57,13 @@ function startTimer(event) {
       document.getElementById("timer").innerHTML = "Time's up!";
       document.body.style.backgroundColor = "black";
       document.body.style.color = "white";
+
+      // Check if the user has enabled sound
+      if (document.getElementById("enableSound").checked) {
+        document.getElementById("alarmSound").play().catch(function(err) {
+          console.log("Sound playback failed or was prevented by the browser:", err);
+        });
+      }
     }
   }, 1000);
 }
